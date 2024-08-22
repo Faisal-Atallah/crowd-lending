@@ -1,0 +1,49 @@
+<div class="mx-2">
+    <div class="text-2xl font-bold text-dark-blue mb-3">{{'investment-platform' | translate}}</div>
+    <div class="text-base font-normal">
+        <span>{{'not-sure-what-to-invest' | translate}} </span> <a tabindex="0"
+            class="cursor-pointer text-medium-sea-green">
+            {{'see-recommendations' | translate}}</a>
+    </div>
+</div>
+<p-dataView #dvInvestment emptyMessage="{{'no-data-found' | translate}}" styleClass="invest-data-view"
+    [value]="investments" [sortOrder]="sortOrder" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+    [paginator]="true" [rows]="4" filterBy="title" [sortField]="sortField" [sortOrder]="-1" layout="grid">
+
+    <ng-template pTemplate="header">
+        <div class="header__card mx-2">
+            <div class="flex flex-column md:flex-row md:justify-content-between gap-2">
+
+                <div class="search-filter">
+                    <div></div>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input (input)="filterInvestments(dvInvestment, $event)" type="text" pInputText
+                            placeholder="{{'search' | translate}}" class="search-input" />
+                    </span>
+                </div>
+
+                <div class="invetment-sector-filter">
+                    <span>{{'investment-sector' | translate}} </span>
+                    <p-dropdown [(ngModel)]="selectedSector" [filter]="true" [showClear]="false"
+                        [options]="sectorsOptions" optionLabel="label" (onChange)="onSectorChange($event)"
+                        [autoDisplayFirst]="false" placeholder="{{'filter-by' | translate}}"
+                        styleClass="sector-dropdown">
+                    </p-dropdown>
+                </div>
+                <div class="sort-by-filter">
+                    <span>{{'sort-by' | translate}} </span>
+                    <p-dropdown [options]="sortOptions" [autoDisplayFirst]="false"
+                        (onChange)="onGradeSortChange($event)" [(ngModel)]="sortField" styleClass="sort-drop-down"
+                        placeholder="{{'sort-by' | translate}}"></p-dropdown>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template let-investment pTemplate="gridItem">
+        <div class="col-12 md:col-3 card-list-container">
+            <app-invest-list-card [invest]="investment"> </app-invest-list-card>
+        </div>
+    </ng-template>
+</p-dataView>

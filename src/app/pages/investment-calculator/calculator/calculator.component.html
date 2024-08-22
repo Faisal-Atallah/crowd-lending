@@ -1,0 +1,68 @@
+<div>
+    <div class="flex flex-wrap">
+        <div class="w-full lg:w-6 investment-range">
+
+            <div class="investments-amount-title">{{'investments-amount' | translate}}</div>
+
+            <div class="flex justify-content-between align-items-center">
+                <span class="initial-investment-title">{{'initial-investment' | translate}}</span>
+                <span class="initial-investmen-value">{{'jod' | translate}}{{initialInvestment}}</span>
+            </div>
+
+            <div class="mt-3 mb-3">
+                <p-slider [(ngModel)]="initialInvestment" class="w-full"></p-slider>
+            </div>
+
+            <div class="mt-5 flex justify-content-between align-items-center">
+                <span class="property-growth-title">{{'property-value-growth' | translate}}</span>
+                <span class="property-growth-value">{{propertyValueGrowth}}%</span>
+            </div>
+
+            <div class="mt-3 mb-3">
+                <p-slider [(ngModel)]="propertyValueGrowth" class="w-full"></p-slider>
+            </div>
+
+            <div class="mt-5 flex justify-content-between align-items-center">
+                <span class="expected-annual-title">{{'expected-annual-rental' | translate}}</span>
+                <span class="expected-annual-value">{{expectedAnnualRental}}%</span>
+            </div>
+
+            <div class="mt-3 mb-3">
+                <p-slider [(ngModel)]="expectedAnnualRental" class="w-full"></p-slider>
+            </div>
+
+        </div>
+        <div class="w-full p-4 lg:p-7 lg:w-6">
+            <div class="summary-container">
+                <div class="flex align-items-center justify-content-center flex-wrap text-sm">
+                    <div class="investment">
+                        <span>
+                            <span class="circle"></span>
+                            {{'investment' | translate}}
+                        </span>
+                        <div class="text">333</div>
+                    </div>
+                    <div class="total-rental">
+                        <span>
+                            <span class="circle"></span>
+                            {{'total-retal-income' | translate}}</span>
+                        <div class="text">26</div>
+                    </div>
+                    <div class="value-appreciation">
+                        <span>
+                            <span class="circle"></span>
+                            {{'value-appreciation' | translate}}</span>
+                        <div class="text">17</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chart">
+                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                    [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                    [responsive]="chartOptions.responsive" [xaxis]="chartOptions.xaxis" [legend]="chartOptions.legend"
+                    [fill]="chartOptions.fill"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>

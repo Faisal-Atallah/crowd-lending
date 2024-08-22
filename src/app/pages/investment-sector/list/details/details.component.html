@@ -1,0 +1,19 @@
+<div class="investment-details-card">
+    <div class="grid px-3">
+        <div class="col-12 md:col-4 mb-2 mt-4 xs-text-center">
+            <div class="text-medium-sea-green text-3xl font-bold mb-1"><span class="font-medium">{{'jod' |
+                    translate}}</span>
+                {{totalInvestments}}</div>
+            <div class="text-base font-light text-pantone"> {{sectorName}}</div>
+        </div>
+        <div class="col-12 md:col-4 text-center mb-2 mt-4">
+            <img *ngIf="image" [alt]="sectorName" [src]="image" />
+            <img *ngIf="!image" [src]="'assets/images/portofolio/real-state.svg'" [alt]="sectorName">
+        </div>
+        <div class="col-12 roi-container md:col-4 text-right xs-text-center mb-2 mt-4">
+            <div class="text-medium-sea-green text-3xl font-bold mb-1">{{roi}}%</div>
+            <div class="text-base font-light text-pantone"><span>{{'total-return-on-investment' | translate}}</span>
+                ({{'roi' | translate}})</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<p-dialog [styleClass]="'withdrawDialog'" [(visible)]="visible" appendTo="body" (onHide)="closeDialog()" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{width: '42vw'}" header="Withdraw Your Funds"
+    [draggable]="true" [resizable]="true">
+    <ng-template pTemplate="header">
+        <div class="flex flex-column gap-2">
+            <h1 class="font-bold text-xl text-dark-blue">{{'withdraw-Funds' | translate}}</h1>
+        </div>
+    </ng-template>
+    <form [formGroup]="withdrawForm" class="flex flex-column gap-3 mt-2">
+        <div class="mb-2">
+            <label for="amount" class="block mb-2 font-normal text-pantone text-base">
+                {{'amount-want-withdraw' | translate}}
+            </label>
+            <input name="amount" min="0" [formControlName]="'amount'" placeholder="{{'amount' | translate}}"
+                type="number" class="w-full" id="amount" pInputText />
+            <p-message class="block mt-2" severity="error" text="{{'amount-required' | translate}}"
+                *ngIf="(withdrawForm.controls['amount'].hasError('required'))&&!withdrawForm.controls['amount'].valid&&withdrawForm.controls['amount'].dirty ">
+            </p-message>
+        </div>
+        <div class="mb-2">
+            <label for="phoneNumber" class="block mb-2 font-normal text-pantone text-base">{{'phone-number' |
+                translate}}</label>
+            <input name="phoneNumber" [formControlName]="'phoneNumber'" placeholder="{{'phone-number' | translate}}"
+                type="text" class="w-full" id="phoneNumber" pInputText />
+        </div>
+        <div class="mb-2">
+            <label for="customerName" class="block mb-2 font-normal text-pantone text-base">{{'customer-name' |
+                translate}}</label>
+            <input name="customerName" [formControlName]="'userName'" placeholder="{{'customer-name' | translate}}"
+                type="text" class="w-full" id="customerName" pInputText />
+        </div>
+
+        <div class="mb-2">
+            <label for="pin" class="block mb-2 font-normal text-pantone text-base">{{'pin' | translate}}</label>
+            <input name="pin" [formControlName]="'pin'" placeholder="{{'pin' | translate}}" type="password"
+                class="w-full" id="pin" pInputText />
+            <p-message class="block mt-2" severity="error" text="{{'pin-required' | translate}}"
+                *ngIf="(withdrawForm.controls['pin'].hasError('required'))&&!withdrawForm.controls['pin'].valid&&withdrawForm.controls['pin'].dirty ">
+            </p-message>
+        </div>
+
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="flex">
+            <button (click)="withdraw()" pButton pRipple label="{{'withdrawal' | translate}}"
+                class="uppercase withdraw-btn w-full"></button>
+        </div>
+    </ng-template>
+</p-dialog>

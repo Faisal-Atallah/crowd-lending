@@ -1,0 +1,30 @@
+@import 'responsive.scss';
+@import 'box-style.scss';
+
+.investment-details-card {
+    @include box-style();
+
+    .roi-container {
+        text-align: right;
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .investment-details-card {
+            .roi-container {
+                text-align: left !important;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .investment-details-card {
+        .roi-container {
+            text-align: center !important;
+        }
+    }
+    
+}

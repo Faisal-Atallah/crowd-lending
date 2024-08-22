@@ -1,0 +1,38 @@
+@import 'responsive.scss';
+@import 'gradient-box-style';
+
+
+
+.balance-card {
+    @include gradient-box-style();
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+
+    .img-container {
+        background-color: var(--cool-gray);
+        padding: 0.5rem;
+        width: 42px;
+        height: 42px;
+        border-radius: 50px;
+        border: 1px solid transparent;
+    }
+
+    .text-container {
+        margin-left: 1rem;
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .balance-card {
+            .text-container {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+
+            .arrow-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

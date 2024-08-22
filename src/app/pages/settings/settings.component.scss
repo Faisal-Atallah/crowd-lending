@@ -1,0 +1,68 @@
+@import 'breakpoints';
+
+.page-container {
+    @include custome-screen-min-width(1200px) {
+        margin-left: 2rem !important;
+    }
+
+    @include custome-screen-min-max-width(1200px, 576px) {
+        margin-left: 0.5rem !important;
+    }
+
+    @include custome-screen-max-width(993px) {
+        margin-left: 0 !important;
+    }
+
+    @include custome-screen-min-max-width(992px,992px){
+       margin-left: 1rem !important;
+    }
+
+    @include custome-screen-max-width(576px) {
+        margin-left: 0 !important;
+    }
+
+
+}
+
+.lang-icon {
+    @include custome-screen-min-width(768px) {
+        margin-right: 0.5rem !important;
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .page-container {
+            @include custome-screen-min-width(1200px) {
+                margin-left: unset !important;
+                margin-right: 2rem !important;
+            }
+
+            @include custome-screen-min-max-width(1200px, 576px) {
+                margin-left: unset !important;
+                margin-right: 0.5rem !important;
+            }
+
+            @include custome-screen-max-width(992px) {
+                margin-left: unset !important;
+                margin-right: 0 !important;
+            }
+
+            @include custome-screen-min-max-width(992px,992px){
+                margin-left: unset !important;
+                margin-right: 1rem !important;
+             }
+
+            @include custome-screen-max-width(576px) {
+                margin-left: unset !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        .lang-icon {
+            @include custome-screen-min-width(768px) {
+                margin-left: 0.5rem !important;
+            }
+        }
+    }
+}

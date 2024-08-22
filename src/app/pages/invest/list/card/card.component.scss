@@ -1,0 +1,95 @@
+ :host ::ng-deep {
+     .invest-card {
+         @import 'chip';
+         border-radius: 10px;
+
+         .invetment-title {
+             font-size: 1rem;
+             font-weight: 600;
+             color: var(--dark-blue);
+         }
+
+         .invetment-description {
+             font-size: 0.813rem;
+             font-weight: 300;
+             color: var(--pantone);
+         }
+
+         .grade-chip {
+             margin-right: 0.25rem;
+         }
+
+         .invetment-duration,
+         .invetment-days-left,
+         .invetment-points {
+             font-weight: 500;
+             font-size: 0.813rem;
+             color: var(--pantone);
+         }
+
+         .roi-label,
+         .invetment-duration-label,
+         .invetment-days-left-label,
+         .invetment-points-label {
+             font-weight: 300;
+             font-size: 0.813rem;
+             color: var(--pantone);
+         }
+
+         .roi {
+             font-weight: 700;
+             font-size: 0.813rem;
+             color: var(--medium-sea-green);
+         }
+
+
+         .sector-chip {
+             //  text-overflow: ellipsis;
+             //  /* enables ellipsis */
+             //  white-space: nowrap;
+             //  /* keeps the text in a single line */
+             //  overflow: hidden;
+         }
+
+         .sector-chip,
+         .grade-chip {
+             margin-bottom: 0.25rem;
+         }
+
+         .avatar-img {
+             position: absolute;
+             bottom: -1.2rem;
+             right: 0.5rem;
+             margin-right: 0.5rem;
+             border: 1px solid var(--gainsboro);
+             border-color: var(--gainsboro);
+         }
+
+         .p-progressbar {
+             .p-progressbar-value {
+                 border: 0 none;
+                 margin: 0;
+                 background: var(--shamrock);
+             }
+         }
+     }
+ }
+
+ [dir="rtl"] {
+     :host ::ng-deep {
+         .invest-card {
+             .avatar-img {
+                 right: unset !important;
+                 margin-right: unset;
+                 margin-left: 0.5rem;
+                 bottom: -1.2rem;
+                 left: 0.5rem;
+             }
+
+             .grade-chip {
+                 margin-right: unset;
+                 margin-left: 0.25rem;
+             }
+         }
+     }
+ }

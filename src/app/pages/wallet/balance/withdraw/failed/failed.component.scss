@@ -1,0 +1,9 @@
+::ng-deep {
+    .withdrawFaildDialog {
+        border-radius: 10px;
+
+        .p-dialog-header {
+            padding-bottom: 0 !important;
+        }
+    }
+}

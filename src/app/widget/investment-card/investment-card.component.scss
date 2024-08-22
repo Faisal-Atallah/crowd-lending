@@ -1,0 +1,36 @@
+@import 'gradient-box-style';
+
+::ng-deep {
+    .investement-card {
+        @import 'chip';
+        @include gradient-box-style();
+        padding: 1.3rem 1rem 1rem 1rem;
+        margin-bottom: 1rem;
+
+        .title-container {
+            margin-left: 0.5rem;
+        }
+
+        .remaining-title,
+        .duration-title {
+            margin-left: 0.25rem
+        }
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .investement-card {
+            .title-container {
+                margin-left: 0;
+                margin-right: 0.5rem !important;
+            }
+
+            .remaining-title,
+            .duration-title {
+                margin-left: unset;
+                margin-right: 0.25rem;
+            }
+        }
+    }
+}

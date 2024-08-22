@@ -1,0 +1,178 @@
+@if(investmentDetails){
+<div class="investment-details">
+    <div class="flex flex-wrap">
+        <div class="flex align-items-center justify-content-center">
+            <div class="w-full">
+                <div class="bg-white z-index invest-now-card">
+                    <div class="relative">
+                        <img *ngIf="investmentDetails?.coverImage" [src]="investmentDetails?.coverImage"
+                            class="w-full" />
+                        <img *ngIf="!investmentDetails?.coverImage" [src]="'assets/images/blog/blog-1.png'"
+                            class="w-full" />
+                    </div>
+                    <div class="p-3">
+
+                        <button (click)="openInvestFormDialog(investmentDetails)" pButton pRipple
+                            class="invest-now-btn">{{'invest-now' |
+                            translate}}</button>
+
+                        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="invetment-points">{{investmentDetails?.points}} </span> <span
+                                    class="invetment-points-label">{{'per-point' |
+                                    translate}}</span>
+                            </div>
+                            <div>
+                                <span class="invetment-days-left">{{investmentDetails?.daysLeft}} </span> <span
+                                    class="invetment-days-left-label">{{'days-left' |
+                                    translate}}</span>
+                            </div>
+                        </div>
+                        <!-- ProgressBar -->
+                        <div class="mt-2 mb-2">
+                            <p-progressBar [value]="investmentDetails.progress" [showValue]="false"
+                                [style]="{'height':'.5rem'}"></p-progressBar>
+                        </div>
+                        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="invetment-duration">{{investmentDetails?.duration}} </span> <span
+                                    class="invetment-duration-label">{{'months' |
+                                    translate}}</span>
+                            </div>
+                            <div>
+                                <span class="roi-label">{{'roi' | translate}} </span> <span
+                                    class="roi">{{investmentDetails?.roi}}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full xl:w-6 details">
+            <div>
+                <p-avatar *ngIf="investmentDetails?.profilePhoto" [image]="investmentDetails?.profilePhoto"
+                    styleClass="flex profile-img" size="large" shape="circle"></p-avatar>
+
+                <p-avatar *ngIf="!investmentDetails?.profilePhoto" [image]="'assets/images/avatar/blog/blog-1.png'"
+                    styleClass="flex profile-img" size="large" shape="circle"></p-avatar>
+            </div>
+            <div class="flex">
+                <span class="title">{{investmentDetails.title}}</span>
+
+                <div>
+                    <p-chip
+                        [ngClass]="{'p-chip-hight' : investmentDetails?.investmentGrade === 'High','p-chip-med':investmentDetails?.investmentGrade === 'Medium' ,'p-chid-low':investmentDetails?.investmentGrade === 'Low'}"
+                        [label]="investmentDetails?.investmentGrade | translate" styleClass="grade-chip"></p-chip>
+                </div>
+            </div>
+            <div class="description">
+                {{investmentDetails.description}}
+            </div>
+            <div class="w-full">
+                <p-chip [ngClass]="'sector-chip'" [label]="investmentDetails?.sector" styleClass="sector-chip"></p-chip>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="financial-info-container">
+    <div class="flex flex-wrap">
+        <div class="w-full xl:w-6 flex video-container align-items-center justify-content-center">
+            <div class="relative w-full h-full" style="padding-bottom:56.25%;height:0;">
+                <iframe class="video-iframe absolute top-0 left-0 w-full h-full" width="560" height="418"
+                    [src]="investmentDetails?.video | safe:'resourceUrl' " title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-full">
+                <div class="bg-white z-index company-info-card">
+                    <div class="p-3">
+                        <div class="flex flex-wrap mt-5 mb-2 gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="company-valuation">{{investmentDetails?.companyValuation}} </span>
+                            </div>
+                            <div>
+                                <span class="company-goal">{{investmentDetails?.goal}} </span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="company-valuation-label">{{'company-valuation' | translate}}</span>
+                            </div>
+                            <div>
+                                <span class="company-goal-label">{{'goal' |
+                                    translate}}</span>
+                            </div>
+                        </div>
+                        <p-divider></p-divider>
+
+                        <div class="flex flex-wrap mt-5 mb-2 gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="value-per-digital-share">{{investmentDetails?.valuePerDigitalShare}}%
+                                </span>
+                            </div>
+                            <div>
+                                <span class="maximum-share-equity">{{investmentDetails?.maximumShareEquity}}%</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                            <div>
+                                <span class="value-per-digital-share-label">{{'value-per-digital-share' |
+                                    translate}}</span>
+                            </div>
+                            <div>
+                                <span class="maximum-share-equity-label">{{'maximum-share-equity' | translate}} </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="documents-label">{{'documents' | translate}}</div>
+                            <div class="document-container">
+                                @for (document of investmentDetails.documents; track document) {
+                                <div class="flex document justify-content-between flex-row">
+                                    <div class="flex align-items-center">
+                                        <span class="file-label">{{document?.name}}</span>
+                                    </div>
+                                    <p-button icon="pi pi-download" [rounded]="true" [text]="true"
+                                        severity="secondary "></p-button>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+}
+
+<div class="related-projects">
+    {{'related-projects' | translate}}
+</div>
+
+@if(relatedProjects){
+<p-dataView #dvInvestment emptyMessage="{{'no-data-found' | translate}}" styleClass="related-projects-data-view"
+    [value]="relatedProjects" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [paginator]="false"
+    [rows]="4" filterBy="title" [sortOrder]="-1" layout="grid">
+
+
+    <ng-template let-investment pTemplate="gridItem">
+        <div class="col-12 md:col-3 card-list-container">
+            <app-invest-list-card [invest]="investment"> </app-invest-list-card>
+        </div>
+    </ng-template>
+</p-dataView>
+}
+
+<app-invest-form *ngIf="isInvestFormVisibile" (onInvestClicked)="onInvest($event)"
+    (onCloseDialog)="closeInvestFormDialog($event)" [visible]="isInvestFormVisibile"
+    [invest]="investmentDetails"></app-invest-form>
+
+<app-invest-confirm *ngIf="isConfirmInvestVisibile" [investData]="investData"
+    (onCloseDialog)="closeConfirmInvestDialog($event)" [visible]="isConfirmInvestVisibile"></app-invest-confirm>

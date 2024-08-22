@@ -1,0 +1,45 @@
+.p-chip {
+    border-radius: 1.25rem;
+
+    // padding: 0.75rem;
+    //height: 1.25rem;
+    .p-chip-text {
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+}
+
+.sector-chip {
+    .p-chip {
+        font-weight: 400 !important;
+        color: var(--pantone);
+        border: 1px solid var(--gainsboro);
+        background-color: var(--ghost-White);
+    }
+}
+
+.p-chip-paid,
+.p-chip-hight {
+    .p-chip {
+        border: 1px solid var(--medium-sea-green);
+        color: var(--medium-sea-green);
+        background-color: var(--green-light);
+    }
+}
+
+.p-chip-med {
+    .p-chip {
+        border: 1px solid var(--selective-yellow);
+        color: var(--selective-yellow);
+        background-color: var(--floral-white);
+    }
+}
+
+.p-chip-unPaid,
+.p-chid-low {
+    .p-chip {
+        border: 1px solid var(--dark-pink);
+        color: var(--dark-pink);
+        background-color: var(--snow);
+    }
+}

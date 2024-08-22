@@ -1,0 +1,62 @@
+<div class="flex flex-column h-full display-lg">
+    <div class="flex align-items-center flex-wrap justify-content-between">
+        <div class="flex-column">
+            <span class="text-sm font-medium text-pantone block">{{'wallet-balance' | translate}}</span>
+            <span class="text-3xl font-normal text-dark-blue">{{'jod' | translate}} <span
+                    class="font-bold">{{walletBallance}}</span></span>
+        </div>
+        <div>
+            <button (click)="openAddMoneyDialog()" title="{{'add-money' | translate}}" pButton pRipple
+                class="wallet-btn p-button-text">
+                <img src="assets/images/icons/add-money.svg" class="btn-image" alt="add money"> {{'add-money' |
+                translate}}
+            </button>
+            <button (click)="openWithdrawDialog()" title="{{'withdraw' | translate}}" pButton pRipple type="button"
+                class="wallet-btn">
+                <img src="assets/images/icons/money.svg" class="btn-image" alt="money">
+                {{'withdraw' | translate}}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="grid p-fluid display-sm">
+    <div class="col-12">
+        <div class="grid formgrid">
+            <div class="col-12 mb-3">
+                <span class="text-sm font-medium text-pantone block">{{'wallet-balance' | translate}}</span>
+                <span class="text-3xl font-normal text-dark-blue">{{'jod' | translate}} <span
+                        class="font-bold">{{walletBallance}}</span></span>
+            </div>
+
+            <div class="col-12 mb-2">
+                <button (click)="openAddMoneyDialog()" title="{{'add-money' | translate}}" pButton pRipple
+                    class="wallet-btn p-button-text mb-3">
+                    <img src="assets/images/icons/add-money.svg" class="btn-image" alt="{{'add-money' | translate}}">
+                    {{'add-money' |
+                    translate}}
+                </button>
+                <button (click)="openWithdrawDialog()" title="{{'withdraw' | translate}}" pButton pRipple type="button"
+                    class="wallet-btn">
+                    <img src="assets/images/icons/money.svg" class="btn-image" alt="{{'withdraw' | translate}}">
+                    {{'withdraw' | translate}}
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-walet-add-money-dialog (onSaveClicked)="addMoneyToWallet($event)" [visible]="isAddMoneyDialogVisibile"
+    (onCloseDialog)="closeAddMoneyDialog($event)"></app-walet-add-money-dialog>
+
+<app-confirm-add-money-dialog [walletData]="walletData" (onCloseDialog)="closeConfirmAddMoneyDialog($event)"
+    [visible]="isConfirmAddMoneyDialogVisibile"></app-confirm-add-money-dialog>
+
+<app-wallet-withdraw-dialog (onWithdrawClicked)="withdrawWalletBalance($event)" [visible]="isWithdrawDialogVisibile"
+    (onCloseDialog)="closeWithdrwaDialog($event)"></app-wallet-withdraw-dialog>
+
+<app-withdraw-failed-dialog [visible]="isWithdrawFaildDialogVisible"
+    (onCloseDialog)="closeWithdrwaFaildDialog($event)"></app-withdraw-failed-dialog>
+
+ 

@@ -1,0 +1,14 @@
+::ng-deep {
+    .inviteDialog {
+        .p-dialog-content {
+            height: 15rem;
+        }
+    }
+}
+
+.invite-code-container {
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #B4C1DB;
+    background: rgba(255, 255, 255, 0.80);
+}

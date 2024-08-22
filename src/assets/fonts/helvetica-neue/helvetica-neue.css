@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Helvetica';
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url("helvetica-neue-regular.woff2") format("woff2");
+}

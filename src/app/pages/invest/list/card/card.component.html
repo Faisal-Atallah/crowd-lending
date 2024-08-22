@@ -1,0 +1,73 @@
+<div class="card-container p-2">
+    <div class="bg-white cursor-pointer z-index invest-card" (click)="openInvestFormDialog(invest)">
+        <div class="relative">
+            <img *ngIf="invest.coverImage" [src]="invest.coverImage" class="w-full" />
+            <img *ngIf="!invest.coverImage" [src]="'assets/images/blog/blog-1.png'" class="w-full" />
+
+            <!-- <img [src]="invest.profilePhoto" class="flex absolute w-4rem h-4rem" style="bottom: -1.5rem; right: 1.5rem"> -->
+            <p-avatar *ngIf="invest.profilePhoto" [image]="invest.profilePhoto" styleClass="flex avatar-img"
+                size="large" shape="circle"></p-avatar>
+
+            <p-avatar *ngIf="!invest.profilePhoto" [image]="'assets/images/avatar/blog/blog-1.png'"
+                styleClass="flex avatar-img" size="large" shape="circle"></p-avatar>
+        </div>
+        <div class="p-3">
+            <div class="invetment-title mb-2">{{invest.title}}</div>
+            <p class="invetment-description mt-0 mb-3">{{invest.description}}</p>
+
+            <div class="flex flex-wrap align-items-center">
+                <p-chip
+                    [ngClass]="{'p-chip-hight' : invest.investmentGrade === 'High','p-chip-med':invest.investmentGrade === 'Medium' ,'p-chid-low':invest.investmentGrade === 'Low'}"
+                    [label]="invest.investmentGrade | translate" styleClass="grade-chip"></p-chip>
+
+                <p-chip [title]="invest.sector" [label]="invest.sector" class="sector-chip"
+                    styleClass="sector-chip"></p-chip>
+            </div>
+            <p-divider></p-divider>
+
+            <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                <div>
+                    <span class="invetment-points">{{invest.points}} </span> <span
+                        class="invetment-points-label">{{'per-point' |
+                        translate}}</span>
+                </div>
+                <div>
+                    <span class="invetment-days-left">{{invest.daysLeft}} </span> <span
+                        class="invetment-days-left-label">{{'days-left' |
+                        translate}}</span>
+                </div>
+            </div>
+
+            <!-- ProgressBar -->
+            <div class="mt-2 mb-2">
+                <p-progressBar [value]="invest.progress" [showValue]="false"
+                    [style]="{'height':'.5rem'}"></p-progressBar>
+            </div>
+
+            <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                <div>
+                    <span class="invetment-duration">{{invest.duration}} </span> <span
+                        class="invetment-duration-label">{{'months' |
+                        translate}}</span>
+                </div>
+
+                <div>
+                    <span class="roi-label">{{'roi' | translate}} </span> <span class="roi">{{invest.roi}}%</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <app-invest-form *ngIf="isInvestFormVisibile" (onInvestClicked)="onInvest($event)"
+    (onCloseDialog)="closeInvestFormDialog($event)" [visible]="isInvestFormVisibile"
+    [invest]="invest"></app-invest-form>
+
+<app-invest-confirm *ngIf="isConfirmInvestVisibile" [investData]="investData"
+    (onCloseDialog)="closeConfirmInvestDialog($event)" [visible]="isConfirmInvestVisibile"></app-invest-confirm> -->
+
+<app-invest-dialog *ngIf="isInvestFormVisibile"
+    (onCloseDialog)="closeInvestFormDialog($event)" [visible]="isInvestFormVisibile" [invest]="invest">
+</app-invest-dialog>

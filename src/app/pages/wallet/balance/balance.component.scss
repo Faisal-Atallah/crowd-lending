@@ -1,0 +1,58 @@
+@import 'responsive';
+@import 'gradient-box-style';
+@import 'breakpoints';
+@import 'rtl';
+
+.wallet-btn {
+    @include gradient-box-style();
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--dark-blue);
+    transition: background-color 0.8s;
+
+    &:first-child {
+        margin-right: 1rem;
+
+        @include for-tablet-portrait-up {
+            margin-right: 0 !important;
+        }
+    }
+
+    .btn-image {
+        margin-right: 0.5rem;
+    }
+}
+
+.wallet-btn {
+    &:active {
+        transition: all 0.5s ease-out;
+        opacity: 0;
+    }
+}
+
+
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .wallet-btn {
+            .btn-image {
+                margin-right: 0 !important;
+                margin-left: 0.5rem !important;
+
+                &:nth-child(1) {
+                    transform: scaleX(-1);
+                }
+            }
+
+            &:first-child {
+                margin-left: 1rem;
+                margin-right: 0;
+
+                @include for-tablet-portrait-up {
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+<p-dialog [styleClass]="'investFormDialog'" (onHide)="closeDialog()" [(visible)]="visible" [style]="{width: '60vw'}"
+    appendTo="body" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [draggable]="true"
+    [resizable]="true">
+
+    <p-button (onClick)="closeDialog()" class="close-btn" icon="pi pi-times" [rounded]="true" [text]="true"></p-button>
+    <ng-template pTemplate="content">
+        <div class="card investement-card hide-on-small-screen">
+            <div class="flex flex-wrap justify-content-between">
+                <div class="flex">
+                    <p-avatar class="profile-photo" *ngIf="!invest.profilePhoto"
+                        [image]="'assets/images/avatar/blog/blog-1.png'" size="large" shape="circle"></p-avatar>
+                    <p-avatar class="profile-photo" *ngIf="invest.profilePhoto" [image]="invest.profilePhoto"
+                        size="large" shape="circle"></p-avatar>
+                    <div>
+                        <div class="text-base font-semibold text-dark-blue mb-1">{{invest.title}}</div>
+                        <div class="text-xs flex align-items-center text-700">
+                            <i class="pi pi-calendar mr-1 text-xs"></i>
+                            <span>Apr 9, 2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ml-2">
+                        <div class="text-base flex justify-content-end font-semibold text-dark-blue mb-1">
+                            <p-chip
+                                [ngClass]="{'p-chip-hight' : invest.investmentGrade === 'High','p-chip-med':invest.investmentGrade === 'Medium' ,'p-chid-low':invest.investmentGrade === 'Low'}"
+                                [label]="invest.investmentGrade"></p-chip>
+                        </div>
+                        <div class="text-xs flex align-items-center font-normal text-dark-blue">
+
+                            <span>{{'investment-grade' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ml-2">
+                        <div class="flex justify-content-end  mb-1">
+                            <span class="font-bold text-medium-sea-green text-base">{{invest.roi}}</span>
+                        </div>
+                        <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                            <span>{{'roi' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ml-2">
+                        <div class="flex justify-content-end  mb-1">
+                            <span class="font-bold text-medium-sea-green text-base">{{invest.shortFall}}</span>
+                        </div>
+                        <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                            <span>{{'shortfall' | translate}} ({{'jod' | translate}})</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ml-2">
+                        <div class="flex justify-content-end  mb-1">
+                            <span class="font-bold   text-base">{{invest.duration}} </span>
+                            <span class="ml-1 text-sm font-medium text-dark-blue"> {{'months' | translate}}</span>
+                        </div>
+                        <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                            <span>{{'investment-duration' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ml-2">
+                        <div class="flex justify-content-end  mb-1">
+                            <span class="font-bold   text-base">{{invest.daysLeft}} </span>
+                        </div>
+                        <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                            <span>{{'days-left' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button pButton pRipple type="button" class="p-button-rounded p-button-text">
+                    <img src="assets/images/icons/arrow.svg" alt="">
+                </button>
+
+            </div>
+        </div>
+
+        <div class="flex flex-column md:flex-row gap-5 hide-on-small-screen" style="min-height: 60vh">
+            <!-- Invest Form -->
+            <div class="card invest-form-card p-0">
+                <div class="w-full">
+                    <form [formGroup]="investForm">
+                        <div>
+                            <!-- Amount -->
+                            <div class="mb-3">
+                                <label for="amount"
+                                    class="block text-pantone font-medium text-base mb-2">{{'amount-want-to-Invest' |
+                                    translate}}</label>
+                                <input id="amount" [formControlName]="'amount'" min="0" type="number"
+                                    placeholder="{{'enter-amount' | translate}}" pInputText class="w-full">
+                                <p-message class="block mt-2" severity="error"
+                                    text="{{'insufficient-amount' | translate}}"
+                                    *ngIf="investForm.get('amount')?.hasError('insufficientAmount')">
+                                </p-message>
+                            </div>
+                            <!-- Phone Number -->
+                            <div class="mb-3">
+                                <label for="phoneNumber"
+                                    class="block text-pantone font-medium text-base mb-2">{{'phone-number' |
+                                    translate}}</label>
+                                <input id="phoneNumber" [formControlName]="'phoneNumber'" type="text"
+                                    placeholder="{{'phone-number' | translate}}" pInputText class="w-full">
+                            </div>
+                            <!-- Customer Name -->
+                            <div class="mb-3">
+                                <label for="customerName"
+                                    class="block text-pantone font-medium text-base mb-2">{{'customer-name' |
+                                    translate}}</label>
+                                <input id="customerName" [formControlName]="'customerName'" type="text"
+                                    placeholder="{{'customer-name' | translate}}" pInputText class="w-full">
+                            </div>
+                            <!-- Pin -->
+                            <div class="mb-3">
+                                <label for="pin" class="block text-pantone font-medium text-base mb-2">{{'pin' |
+                                    translate}}</label>
+                                <input id="pin" [formControlName]="'pin'" type="password"
+                                    placeholder="{{'pin' | translate}}" pInputText class="w-full">
+                            </div>
+                            <button (click)="onInvest()" pButton pRipple label="{{'invest-now' | translate}}"
+                                class="uppercase invest-btn w-full"></button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- / Invest Form -->
+            <div class="flex-1 md:w-35rem card details-card">
+                <div class="mb-3 text-base font-medium text-dark-blue">
+                    {{invest.title}}
+                </div>
+                <div class="flex">
+                    <div class="flex align-items-center border-round description-image-container">
+                        <img src="assets/images/blog/blog-1.png" alt="Image" width="183" height="143">
+                    </div>
+                    <div class="flex align-items-center border-round">
+                        <img src="assets/images/blog/blog-2.png" alt="Image" width="183" height="143">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    Your shopping mall investment is delivering as promised, generating consistent income from its prime
+                    location.
+                </div>
+
+                <div class="mt-6">
+                    <button (click)="goToInvestmentDetails(invest.sectorId,invest.prodKey)" pButton pRipple
+                        class="uppercase learn-more-btn w-full">{{'invest-now' |
+                        translate}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide-on-desktop">
+
+            <div>
+                <app-form-card [invest]="invest"></app-form-card>
+            </div>
+
+            <div class="mob-invest-form">
+                <div class="w-full">
+                    <form [formGroup]="investForm">
+                        <div>
+                            <!-- Amount -->
+                            <div class="mb-3">
+                                <label for="amount"
+                                    class="block text-pantone font-medium text-base mb-2">{{'amount-want-to-Invest' |
+                                    translate}}</label>
+                                <input id="amount" [formControlName]="'amount'" min="0" type="number"
+                                    placeholder="{{'enter-amount' | translate}}" pInputText class="w-full">
+                                <p-message class="block mt-2" severity="error"
+                                    text="{{'insufficient-amount' | translate}}"
+                                    *ngIf="investForm.get('amount')?.hasError('insufficientAmount')">
+                                </p-message>
+                            </div>
+                            <!-- Phone Number -->
+                            <div class="mb-3">
+                                <label for="phoneNumber"
+                                    class="block text-pantone font-medium text-base mb-2">{{'phone-number' |
+                                    translate}}</label>
+                                <input id="phoneNumber" [formControlName]="'phoneNumber'" type="text"
+                                    placeholder="{{'phone-number' | translate}}" pInputText class="w-full">
+                            </div>
+                            <!-- Customer Name -->
+                            <div class="mb-3">
+                                <label for="customerName"
+                                    class="block text-pantone font-medium text-base mb-2">{{'customer-name' |
+                                    translate}}</label>
+                                <input id="customerName" [formControlName]="'customerName'" type="text"
+                                    placeholder="{{'customer-name' | translate}}" pInputText class="w-full">
+                            </div>
+                            <!-- Pin -->
+                            <div class="mb-3">
+                                <label for="pin" class="block text-pantone font-medium text-base mb-2">{{'pin' |
+                                    translate}}</label>
+                                <input id="pin" [formControlName]="'pin'" type="password"
+                                    placeholder="{{'pin' | translate}}" pInputText class="w-full">
+                            </div>
+                            <button (click)="onInvest()" pButton pRipple label="{{'invest-now' | translate}}"
+                                class="uppercase invest-btn w-full"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex-1 card details-card">
+                <div class="mb-3 text-base font-medium text-dark-blue">
+                    {{invest.title}}
+                </div>
+
+                <div class="flex align-items-center border-round">
+                    <img src="assets/images/blog/blog-1.png" class="investment-image mb-2" alt="Image">
+                </div>
+
+                <div class="flex align-items-center border-round">
+                    <img src="assets/images/blog/blog-2.png" class="investment-image" alt="Image">
+                </div>
+
+                <div class="mt-4">
+                    Your shopping mall investment is delivering as promised, generating consistent income from its prime
+                    location.
+                </div>
+
+                <div class="mt-6">
+                    <button (click)="goToInvestmentDetails(invest.sectorId,invest.prodKey)" pButton pRipple
+                        class="uppercase learn-more-btn w-full">{{'invest-now' |
+                        translate}}</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

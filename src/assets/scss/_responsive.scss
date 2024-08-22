@@ -1,0 +1,21 @@
+.display-sm {
+    display: none;
+}
+
+.display-lg {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .display-sm {
+        display: block;
+    }
+
+    .display-lg {
+        display: none !important;
+    }
+
+    .xs-text-center {
+        text-align: center !important;
+    }
+}

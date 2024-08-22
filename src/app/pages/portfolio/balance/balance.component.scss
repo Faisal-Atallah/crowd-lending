@@ -1,0 +1,7 @@
+@import 'gradient-box-style';
+
+.balance-card {
+    @include gradient-box-style();
+    margin-top: 1rem;
+    padding: 2rem;
+}

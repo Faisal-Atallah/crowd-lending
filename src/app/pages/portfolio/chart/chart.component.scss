@@ -1,0 +1,20 @@
+::ng-deep {
+    #SvgjsText1017 {
+        font-family: "Inter" !important;
+    }
+
+    // .apexcharts-legend-series{
+    //     margin: 2px 20px !important;
+    // }
+}
+
+
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .apexcharts-legend-marker {
+            margin-right: unset;
+            margin-left: 3px;
+        }
+    }
+}

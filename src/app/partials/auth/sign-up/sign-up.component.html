@@ -1,0 +1,78 @@
+<form [formGroup]="signUpForm">
+    <div>
+        <div class="mb-3">
+            <label for="fullName" class="block text-pantone font-normal text-sm mb-2">{{'full-name' |
+                translate}}</label>
+            <input stringOnly id="fullName" [formControlName]="'fullName'" type="text" placeholder="{{'full-name' |
+                translate}}" pInputText class="w-full">
+            <p-message class="block mt-2 w-full" severity="error" text="{{'Full-name-required' | translate}}"
+                *ngIf="(signUpForm.controls['fullName'].hasError('required'))&&!signUpForm.controls['fullName'].valid&&signUpForm.controls['fullName'].dirty">
+            </p-message>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="block text-pantone font-normal text-sm mb-2">{{'email' | translate}}</label>
+            <input id="email" [formControlName]="'email'" type="email" placeholder="{{'email' | translate}}" pInputText
+                class="w-full">
+            <!-- <p-message class="block mt-2 w-full" severity="error" text="Please enter valid email"
+                *ngIf="(signUpForm.controls['email'].hasError('email'))">
+            </p-message> -->
+            <p-message class="block mt-2 w-full" severity="error" text="{{'enter-valid-email' | translate}}"
+                *ngIf="(signUpForm.controls['email'].hasError('pattern'))&&!signUpForm.controls['email'].valid&&signUpForm.controls['email'].dirty">
+            </p-message>
+            <p-message class="block mt-2 w-full" severity="error" text="{{'email-required' | translate}}"
+                *ngIf="(signUpForm.controls['email'].hasError('required'))&&!signUpForm.controls['email'].valid&&signUpForm.controls['email'].dirty">
+            </p-message>
+        </div>
+
+        <div class="mb-3">
+            <label for="phoneNumber" class="block text-pantone font-normal text-sm mb-2">{{'phone-number' |
+                translate}}</label>
+
+            <input numberOnly id="phoneNumber" [formControlName]="'phoneNumber'" type="text"
+                placeholder="{{'phone-number' |  translate}}" pInputText class="w-full">
+            <p-message class="block mt-2 w-full" severity="error" text="{{'phone-number-required' | translate}}"
+                *ngIf="(signUpForm.controls['phoneNumber'].hasError('required'))&&!signUpForm.controls['phoneNumber'].valid&&signUpForm.controls['phoneNumber'].dirty">
+            </p-message>
+
+            <p-message class="block mt-2 w-full" severity="error" text="{{'enter-valid-phone' | translate}}"
+                *ngIf="(signUpForm.controls['phoneNumber'].hasError('minlength'))&&!signUpForm.controls['phoneNumber'].valid&&signUpForm.controls['phoneNumber'].dirty">
+            </p-message>
+
+            <p-message class="block mt-2 w-full" severity="error" text="{{'enter-valid-phone' | translate}}"
+                *ngIf="(signUpForm.controls['phoneNumber'].hasError('maxlength'))&&!signUpForm.controls['phoneNumber'].valid&&signUpForm.controls['phoneNumber'].dirty">
+            </p-message>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="block text-pantone font-normal text-sm mb-2">{{'password' | translate}}</label>
+            <input id="password" [formControlName]="'password'" type="password" placeholder="{{'password' | translate}}"
+                pInputText class="w-full">
+
+            <p-message class="block mt-2" severity="error" text="{{'password-required' | translate}}"
+                *ngIf="(signUpForm.controls['password'].hasError('required'))&&!signUpForm.controls['password'].valid&&signUpForm.controls['password'].dirty ">
+            </p-message>
+            <p-message class="block mt-2" severity="error" text="{{'enter-valid-password' | translate}}"
+                *ngIf="signUpForm.get('password')?.hasError('minlength')">
+            </p-message>
+        </div>
+
+        <div class="mb-4">
+            <label for="confirmPassword" class="block text-pantone font-normal text-sm mb-2">{{'repeat-password' |
+                translate}}</label>
+            <input id="confirmPassword" [formControlName]="'confirmPassword'" type="password"
+                placeholder="{{'repeat-password' | translate}}" pInputText class="w-full">
+
+
+            <p-message class="block mt-2" severity="error" text="{{'confirm-password' | translate}}"
+                *ngIf="(signUpForm.controls['confirmPassword'].hasError('required'))&&!signUpForm.controls['confirmPassword'].valid&&signUpForm.controls['confirmPassword'].dirty ">
+            </p-message>
+            <p-message class="block mt-2" severity="error" text="{{'password-must-match' | translate}}"
+                *ngIf="signUpForm.get('confirmPassword')?.hasError('mustMatch')">
+            </p-message>
+        </div>
+
+        <button (click)="signUp()" pButton pRipple label="{{'create-your-account' | translate}}"
+            class="w-full uppercase bg-dark-pink submit-btn"></button>
+    </div>
+</form>

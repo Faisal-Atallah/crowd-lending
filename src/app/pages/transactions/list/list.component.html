@@ -1,0 +1,24 @@
+<ng-container *ngIf="transaction; else noData">
+    <app-investment-card class="display-lg" [image]="investment?.profilePhoto" [amount]="investment?.investmentAmount"
+        [duration]="investment?.investmentDuration" [grade]="investment?.investmentGrade" [title]="investment?.title"
+        [subTitle]="investment?.subTilte" [roi]="investment?.roi" [remaining]="investment?.investmentRemaining">
+    </app-investment-card>
+
+    <app-mobile-investment-card class="display-sm" [image]="investment?.profilePhoto"
+        [amount]="investment?.investmentAmount" [duration]="investment?.investmentDuration"
+        [grade]="investment?.investmentGrade" [title]="investment?.title" [subTitle]="investment?.subTilte"
+        [roi]="investment?.roi" [remaining]="investment?.investmentRemaining" [coverPhoto]="investment?.coverImage">
+
+    </app-mobile-investment-card>
+
+    <div class="text-base font-normal text-pantone mt-4 mb-4">
+        {{transaction.description}}
+    </div>
+
+    <app-transactions-list-table [transactions]="transaction"></app-transactions-list-table>
+
+</ng-container>
+
+<ng-template #noData>
+    {{'no-data-found' | translate}}
+</ng-template>

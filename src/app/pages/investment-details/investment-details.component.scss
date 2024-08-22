@@ -1,0 +1,238 @@
+@import 'breakpoints';
+
+.investment-details {
+
+    .invest-now-card {
+        border-radius: 0.625rem;
+        margin-bottom: 1rem;
+
+        ::ng-deep {
+            .p-progressbar {
+                .p-progressbar-value {
+                    border: 0 none;
+                    margin: 0;
+                    background: var(--shamrock);
+                }
+            }
+        }
+
+        .roi-label,
+        .invetment-duration-label,
+        .invetment-days-left-label,
+        .invetment-points-label {
+            font-size: 0.813rem;
+            font-style: normal;
+            font-weight: 300;
+            color: var(--pantone);
+        }
+
+        .roi,
+        .invetment-duration,
+        .invetment-days-left,
+        .invetment-points {
+            font-weight: 500;
+            font-size: 0.813rem;
+            color: var(--pantone);
+        }
+
+        .roi {
+            font-weight: 700;
+            color: var(--medium-sea-green);
+        }
+
+        .invest-now-btn {
+            margin-bottom: 2rem;
+            border-radius: 5rem;
+            text-transform: uppercase;
+            background-color: var(--medium-sea-green);
+            border-color: var(--medium-sea-green);
+        }
+    }
+
+    .details {
+        ::ng-deep {
+            @import 'chip';
+        }
+
+        padding-left: 2.5rem;
+
+        @include custome-screen-max-width(1200px) {
+            padding-left: 0;
+        }
+
+        ::ng-deep {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                border: 2px solid var(--white);
+            }
+        }
+
+        .title {
+            font-size: 1.375rem;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-right: 2rem;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            font-size: 0.813rem;
+            font-style: normal;
+            font-weight: 300;
+            color: var(--dark-blue);
+        }
+
+        ::ng-deep {
+            .sector-chip {
+                .p-chip {
+                    font-weight: 400 !important;
+                    color: var(--pantone);
+                    border: 1px solid var(--gainsboro);
+                    background-color: var(--white);
+                }
+            }
+        }
+    }
+}
+
+.financial-info-container {
+    margin-top: 2rem;
+
+    .video-container {
+        @include custome-screen-max-width(1200px) {
+            margin-bottom: 1rem;
+        }
+
+        .video-iframe {
+            border-radius: 0.625rem;
+
+            @include custome-screen-max-width(1200px) {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+
+    .company-info-card {
+        width: 457px;
+        height: 100%;
+        margin-left: 1rem;
+        border-radius: 0.625rem;
+        overflow-y: auto;
+
+        @include custome-screen-max-width(1200px) {
+            width: 100%;
+            height: 100%;
+            margin-left: 0;
+        }
+
+        .maximum-share-equity,
+        .value-per-digital-share,
+        .company-goal,
+        .company-valuation {
+            color: var(--dark-blue);
+            font-weight: 700;
+            font-size: 0.813rem;
+        }
+
+        .maximum-share-equity-label,
+        .value-per-digital-share-label,
+        .company-goal-label,
+        .company-valuation-label {
+            font-weight: 300;
+            font-size: 0.813rem;
+            color: var(--dark-blue);
+        }
+
+        .documents-label {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .document-container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            border-radius: 12px;
+            background: rgba(245, 245, 250, 0.50);
+
+            .document {
+                &:nth-child(even) {
+                    border-top: 1px solid #DFE4EA;
+                }
+            }
+
+            .file-label {
+                font-weight: 300;
+                color: var(--dark-blue);
+                font-size: 0.813rem;
+            }
+        }
+    }
+}
+
+
+::ng-deep {
+    .related-projects-data-view {
+        .p-dataview-header {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 300;
+            color: var(--pantone);
+        }
+
+        .p-dataview-content {
+            background-color: transparent;
+        }
+    }
+}
+
+.related-projects {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+
+        .investment-details {
+
+            .details {
+                padding-left: unset;
+                padding-right: 2.5rem;
+
+                @include custome-screen-max-width(1200px) {
+                    padding-right: 0;
+                }
+
+                .title {
+                    margin-left: 2rem;
+                    margin-right: unset !important;
+                }
+            }
+        }
+
+        .financial-info-container {
+            .company-info-card {
+                margin-left: unset;
+                margin-right: 1rem;
+
+                @include custome-screen-max-width(1200px) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

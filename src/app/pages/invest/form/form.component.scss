@@ -1,0 +1,153 @@
+@import 'breakpoints';
+
+::ng-deep {
+    .investFormDialog {
+        box-shadow: none;
+        overflow: auto;
+
+        .p-dialog-header {
+            display: none !important;
+        }
+
+        .p-dialog-content {
+            padding: 0 !important;
+            border-radius: 10px !important;
+        }
+
+        .close-btn {
+            color: var(--pantone) !important;
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            width: 2rem;
+            height: 2rem;
+
+            .p-button.p-button-text {
+                color: var(--pantone) !important;
+            }
+
+            .p-button.p-button-icon-only.p-button-rounded {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+}
+
+.investement-card {
+    ::ng-deep {
+        @import 'chip';
+    }
+
+    margin: 3rem 2rem 3rem 2rem;
+    padding: 2rem;
+    background: linear-gradient(180deg, #FFF 0%, #F0F2FA 100%);
+    border-radius: 8px;
+    border: 1px solid #DFE4EA;
+
+    .profile-photo {
+        margin-right: 0.5rem;
+    }
+}
+
+.invest-form-card {
+    margin: 0 0 3rem 2rem;
+    width: 100%;
+}
+
+.p-inputtext {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark-gray);
+    font-family: 'Inter';
+    border-radius: 5px;
+}
+
+.invest-btn {
+    background-color: var(--dark-pink);
+    border-color: var(--dark-pink);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+
+.details-card {
+    padding: 1.5rem;
+    margin: 0 2rem 3rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--gainsboro);
+    background: var(--white);
+}
+
+.learn-more-btn {
+    background-color: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--shamrock);
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500 !important;
+    color: var(--shamrock);
+    text-align: center;
+    justify-content: center;
+
+    &::after {
+        content: url('/assets/images/icons/keyboard_arrow_left.svg');
+    }
+}
+
+
+.description-image-container {
+    margin-right: 0.5rem;
+}
+
+.hide-on-small-screen {
+    @include custome-screen-max-width(1300px) {
+        display: none !important;
+    }
+}
+
+.hide-on-desktop {
+    @include custome-screen-min-width(1300px) {
+        display: none !important;
+    }
+}
+
+.mob-invest-form {
+    padding: 2rem;
+}
+
+.investment-image {
+    width: 100%;
+    height: auto;
+}
+
+::ng-deep {
+    [dir="rtl"] {
+        .invest-form-card {
+            margin: 0 2rem 0 2rem !important;
+        }
+
+        .description-image-container {
+            margin-right: unset;
+            margin-left: 0.5rem;
+        }
+
+        .investement-card {
+            .profile-photo {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .learn-more-btn {
+            &::after {
+                content: url('/assets/images/icons/keyboard_arrow_left.svg');
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+}

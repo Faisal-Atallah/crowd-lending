@@ -1,0 +1,96 @@
+.investment-range {
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    padding: 1.5rem;
+
+    .investments-amount-title {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .expected-annual-title,
+    .property-growth-title,
+    .initial-investment-title {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .expected-annual-value,
+    .property-growth-value,
+    .initial-investmen-value {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    ::ng-deep {
+        .p-slider-range {
+            background-color: var(--medium-sea-green);
+        }
+
+        .p-slider-handle {
+            border-color: var(--medium-sea-green);
+
+            &:hover {
+                border-color: var(--medium-sea-green);
+                background-color: var(--medium-sea-green);
+            }
+        }
+    }
+
+}
+
+.summary-container {
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    padding: 1rem;
+
+    .value-appreciation,
+    .total-rental,
+    .investment {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-right: 2rem;
+
+        .circle {
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .text {
+            margin-top: 0.5rem;
+            font-weight: 700;
+        }
+    }
+
+    .total-rental {
+        .circle {
+            background-color: var(--selective-yellow);
+        }
+    }
+
+    .value-appreciation {
+        margin-right: 0;
+
+        .circle {
+            background-color: var(--medium-sea-green);
+        }
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .summary-container {
+
+            .value-appreciation,
+            .total-rental,
+            .investment {
+                margin-right: unset;
+                margin-left: 2rem;
+            }
+        }
+    }
+}

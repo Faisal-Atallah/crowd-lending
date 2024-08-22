@@ -1,0 +1,47 @@
+<div class="bg-white cursor-pointer z-index mobile-investement-card mb-3">
+    <div class="relative">
+        <img *ngIf="coverPhoto" [src]="coverPhoto" class="w-full" />
+        <img *ngIf="!coverPhoto" [src]="'assets/images/blog/blog-1.png'" class="w-full" />
+        <p-avatar *ngIf="image" [image]="image" styleClass="flex absolute mr-2 avatar-img" size="large"
+            shape="circle"></p-avatar>
+        <p-avatar *ngIf="!image" [image]="'assets/images/avatar/blog/blog-1.png'"
+            styleClass="flex absolute mr-2 avatar-img" size="large" shape="circle"></p-avatar>
+    </div>
+    <div class="p-3">
+        <div class="text-base text-dark-blue font-semibold mb-2">{{title}}</div>
+        <p class="text-sm font-light text-pantone mt-0 mb-3">{{subTitle}}</p>
+
+        <div class="flex flex-wrap align-items-center">
+            <p-chip
+                [ngClass]="{'p-chip-hight' : grade === 'High','p-chip-med':grade === 'Medium' ,'p-chid-low':grade === 'Low'}"
+                [label]="grade | translate"></p-chip>
+
+        </div>
+        <p-divider></p-divider>
+
+        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="text-sm text-pantone mb-1">
+                <span class="font-semibold">{{amount}} </span> <span class="font-light">{{'your-investment' |
+                    translate}}</span>
+
+            </div>
+            <div class="text-sm text-pantone">
+                <span class="font-semibold">{{remaining}} </span> <span class="font-light">{{'investment-remaining' |
+                    translate}}</span>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="text-sm text-pantone mb-1">
+                <span class="font-semibold">{{duration}} </span> <span class="font-light">{{'months' |
+                    translate}}</span>
+            </div>
+
+            <div class="text-sm text-pantone">
+                <span class=" font-light">{{'roi' | translate}} </span> <span
+                    class="font-bold text-medium-sea-green">{{roi}}</span>
+            </div>
+        </div>
+
+    </div>
+</div>

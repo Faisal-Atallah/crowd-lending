@@ -1,0 +1,1 @@
+export const INVESTMENT_DETAILS_ENDPOINT = 'investment-details';

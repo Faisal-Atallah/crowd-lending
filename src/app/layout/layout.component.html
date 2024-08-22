@@ -1,0 +1,11 @@
+<ng-container *ngIf="(loadingIndicatorService.loading$ | async) ===false; else loading">
+    <app-empty-layout *ngIf="layout === 'empty'"></app-empty-layout>
+
+    <app-horizontal-layout *ngIf="layout === 'horizontal'"> </app-horizontal-layout>
+
+    <app-horizontal-with-breadcrumb *ngIf="layout ==='horizontalWithBreadcrumb'"></app-horizontal-with-breadcrumb>
+</ng-container>
+
+<ng-template #loading>
+    <app-loading-indicator> </app-loading-indicator>
+</ng-template>

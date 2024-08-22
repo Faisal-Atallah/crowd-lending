@@ -1,0 +1,116 @@
+@import 'paginator';
+
+::ng-deep {
+    .invest-data-view {
+        .p-dataview-header {
+            background-color: var(--ghost-White);
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 300;
+            color: var(--pantone);
+        }
+
+        .p-dataview-content {
+            background-color: var(--ghost-White);
+        }
+    }
+
+    .p-paginator {
+        margin: 0.5rem;
+    }
+
+    .sector-dropdown,
+    .sort-drop-down {
+        width: 10rem;
+    }
+}
+
+.header__card {
+    border: solid 1px var(--gainsboro);
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 0.7rem;
+    background-color: var(--white);
+}
+
+
+.search-input {
+    width: 100%;
+}
+
+@media only screen and (max-width: 720px) {
+    ::ng-deep {
+
+        .search-filter,
+        .p-input-icon-left,
+        .sector-dropdown,
+        .sort-drop-down {
+            width: 100%;
+            margin-top: 0.3rem;
+        }
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .invetment-sector-filter {
+            .p-dropdown-panel {
+                .p-dropdown-header {
+                    .p-dropdown-filter {
+                        margin-right: unset;
+                    }
+                }
+            }
+
+            .p-dropdown-panel {
+                .p-dropdown-header {
+                    .p-dropdown-filter-icon {
+                        right: unset;
+                        left: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 1024px) {
+    .card-list-container {
+        width: 33.333% !important;
+    }
+
+    .filters-container {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+
+    .search-input,
+    .search-filter {
+        width: 100%;
+    }
+
+    .sort-by-filter,
+    .invetment-sector-filter {
+        display: grid;
+        width: 100%;
+    }
+
+    ::ng-deep {
+
+        .p-input-icon-left,
+        .search-filter,
+        .sector-dropdown,
+        .sort-drop-down {
+            width: 100%;
+            margin-top: 0.3rem;
+        }
+
+        .search-filter {
+            margin-top: 1rem;
+        }
+    }
+}

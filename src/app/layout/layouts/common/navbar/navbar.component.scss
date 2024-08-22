@@ -1,0 +1,77 @@
+@import 'breakpoints';
+
+.navbar {
+    // padding-top: 0.5rem !important;
+    // padding-bottom: 0.5rem !important;
+    // padding-left: 5rem !important;
+    // padding-right: 5rem !important;
+    height: 4rem;
+    padding: 0.5rem 5rem 0.5rem 5rem;
+
+    background: var(--dark-sapphire);
+
+    ul {
+        li {
+            a {
+                color: var(--drak-light)
+            }
+        }
+    }
+
+    .p-button {
+        color: var(--white);
+        background: var(--dark-pink);
+        border: 1px solid var(--dark-pink);
+        padding: 0.55rem 1.25rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    .login-btn {
+        background-color: var(--dark-sapphire);
+        border-color: var(--dark-sapphire);
+    }
+
+    .profile-list {
+        ul {
+            width: 8rem !important;
+
+            @include custome-screen-max-width(992px) {
+                width: 100% !important;
+            }
+        }
+    }
+
+    .sign-up-btn {
+        margin-left: 1rem;
+    }
+}
+
+.logo-img {
+    @include custome-screen-min-width(992px) {
+        margin-right: 3rem !important;
+    }
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .logo-img {
+            @include custome-screen-min-width(992px) {
+                margin-right: 0 !important;
+                margin-left: 3rem !important;
+            }
+        }
+
+        .sign-up-btn {
+            margin-left: unset !important;
+            margin-right: 1rem;
+        }
+    }
+}
+
+.items-container {
+    @include custome-screen-max-width(992px) {
+        padding-bottom: 1rem;
+    }
+}

@@ -1,0 +1,29 @@
+ ::ng-deep {
+     .saveWithUsFormDialog {
+         box-shadow: none;
+         overflow: auto;
+
+         .p-dialog-header {}
+
+         .p-dialog-content {}
+
+         .close-btn {}
+
+         .p-dialog .p-dialog-footer button {
+             margin: 0 !important;
+         }
+
+     }
+
+ }
+
+ .save-btn {
+     background-color: var(--dark-pink);
+     border-color: var(--dark-pink);
+     font-family: Inter;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 700;
+     border-radius: 5px;
+     margin: 0;
+ }

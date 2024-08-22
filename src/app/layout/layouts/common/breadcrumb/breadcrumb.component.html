@@ -1,0 +1,16 @@
+<div class="flex w-full">
+    <ul 
+        class="breadcrump-list list-none w-full py-4 m-0 bg-ghost-White overflow-x-auto flex align-items-center font-medium">
+        <ng-container *ngFor="let item of items;trackBy:trackBy;">
+            <li #listItem class="breadcrump-list-item">
+                <a class="flex cursor-pointer text-dark-gray no-underline text-base font-medium"
+                    [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}">
+                    <img [src]="item.icon" *ngIf="item.icon">
+                    <img [src]="item.img" *ngIf="item.img">
+                    <span *ngIf="item.label" class="breadcrump-label">{{item.label}}</span>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>

@@ -1,0 +1,6 @@
+@import 'gradient-box-style';
+.category-card {
+    @include gradient-box-style();
+}
+
+

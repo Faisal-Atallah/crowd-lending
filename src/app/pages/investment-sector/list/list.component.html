@@ -1,0 +1,49 @@
+<app-investment-sector-details [image]="investmentSector?.image" [totalInvestments]="investmentSector?.totalInvestments"
+    [sectorName]="investmentSector?.sectorName" [roi]="investmentSector?.roi">
+</app-investment-sector-details>
+
+<div class="card">
+    <div class="mt-3 mb-3 text-base text-pantone font-medium">
+        {{investmentSector.sectorName}} {{'investments' | translate}}
+    </div>
+    <p-dataView #dvInvestmentSectors styleClass="investment-sector-data-view" [value]="investmentSector.investments"
+        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [paginator]="true" [rows]="4" filterBy="title"
+        layout="grid">
+
+        <ng-template pTemplate="header">
+            <div class="flex flex-column sm:flex-row sm:align-items-center sm:justify-content-between gap-1">
+                <span class="p-input-icon-left ">
+                    <i class="pi pi-search"></i>
+                    <input (input)="filterInvestmentsSectors(dvInvestmentSectors,$event)" type="text" pInputText
+                        placeholder="{{'search' | translate}}" class="w-full md:w-15rem" />
+                </span>
+                <p-dropdown [options]="sortOptions" [autoDisplayFirst]="false" (onChange)="onSortChange($event)"
+                    [(ngModel)]="sortField" placeholder="{{'sort-by' | translate}}"
+                    styleClass="w-full md:w-15rem"></p-dropdown>
+            </div>
+        </ng-template>
+
+        <ng-template let-investment pTemplate="gridItem">
+            <div class="col-12 bg-ghost-White display-lg">
+                <app-investment-card (click)="setInvetment(investment)"
+                    [routerLink]="['./', investmentSector.id,investment.prodPkText]" class="display-lg"
+                    [id]="investment.id" [image]="investment.profilePhoto" [amount]="investment.investmentAmount"
+                    [duration]="investment.investmentDuration" [grade]="investment.investmentGrade"
+                    [title]="investment.title" [subTitle]="investment.subTilte" [roi]="investment.roi"
+                    [remaining]="investment.investmentRemaining">
+                </app-investment-card>
+            </div>
+
+            <div class="col-12 bg-ghost-White display-sm">
+                <app-mobile-investment-card (click)="setInvetment(investment)"
+                    [routerLink]="['./', investmentSector.id,investment.prodPkText]"
+                    [coverPhoto]="investment.coverImage" [image]="investment.profilePhoto"
+                    [amount]="investment.investmentAmount" [duration]="investment.investmentDuration"
+                    [grade]="investment.investmentGrade" [title]="investment.title" [subTitle]="investment.subTilte"
+                    [roi]="investment.roi" [remaining]="investment.investmentRemaining">
+                </app-mobile-investment-card>
+            </div>
+
+        </ng-template>
+    </p-dataView>
+</div>

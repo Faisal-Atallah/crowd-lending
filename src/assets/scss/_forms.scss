@@ -1,0 +1,34 @@
+@import 'fonts.scss';
+
+.submit-btn {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    border-color: transparent;
+}
+
+.p-inputtext {
+    font-size: 0.813rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--dark-gray);
+    font-family: 'Inter';
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+::ng-deep .p-inline-message-error {
+    width: 100% !important;
+}
+
+::ng-deep [dir="rtl"] {
+    .p-inline-message-error {
+        .p-inline-message-icon {
+            margin-right: 0 !important;
+            margin-left: 0.5rem !important
+        }
+    }
+}

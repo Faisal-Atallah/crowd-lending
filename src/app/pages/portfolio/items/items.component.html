@@ -1,0 +1,6 @@
+<ng-container *ngIf="portfolio">
+    <app-portfolio-chart [charts]="portfolio?.charts"></app-portfolio-chart>
+    <app-portfolio-balance [saving]="portfolio?.savingBalance"
+        [investment]="portfolio?.investmentBalance"></app-portfolio-balance>
+    <app-portfolio-categories [categories]="portfolio.categories"></app-portfolio-categories>
+</ng-container> 

@@ -1,0 +1,17 @@
+<div>
+    <p-dialog [styleClass]="'authDialog'" [showHeader]="false" (onHide)="closeDialog()" [(visible)]="visible"
+        [style]="{width: '35vw'}" appendTo="body" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+        [draggable]="true" [resizable]="true">
+
+        <p-tabView [styleClass]="'authTabView'" [activeIndex]="activeIndex" cache="false" dynamic="true">
+            <p-button (onClick)="closeDialog()" class="close-btn" icon="pi pi-times" [rounded]="true"
+                [text]="true"></p-button>
+            <p-tabPanel header="{{'sign-up' | translate }}">
+                <app-auth-sign-up (onNavigateToSignIn)="navigateToSignIn($event)"></app-auth-sign-up>
+            </p-tabPanel>
+            <p-tabPanel header="{{'login' | translate}}">
+                <app-auth-login></app-auth-login>
+            </p-tabPanel>
+        </p-tabView>
+    </p-dialog>
+</div>

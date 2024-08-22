@@ -1,0 +1,20 @@
+<div class="mt-3">
+    <div class="grid">
+        <ng-container *ngFor="let category of categories">
+            <div class="col-12 md:col-6 xl:col-3 ">
+                <div class="category-card border-round cursor-pointer" [routerLink]="['./',category.id]">
+                    <div class="flex flex-column align-items-center mb-4 mt-4">
+                        <span class="text-lg font-medium text-medium-sea-green mb-2">{{'jod' | translate}} <span
+                                class="text-xl font-bold">{{category.balance}}</span></span>
+                        <span class="text-base font-light text-pantone mb-2">{{category.title}}</span>
+                        <img *ngIf="category.image" [src]="category.image" style="width: 70px;height: 70px" class="mb-3" />
+                        <img *ngIf="!category.image" [src]="'assets/images/portofolio/real-state.svg'" style="width: 70px;height: 70px" class="mb-3" />
+ 
+                        <span class="text-base font-light text-pantone">{{'roi' | translate}} <span
+                                class="text-xl font-bold text-medium-sea-green">{{category.roi}}%</span></span>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

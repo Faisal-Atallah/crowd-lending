@@ -1,0 +1,27 @@
+<p-dialog [styleClass]="'inviteDialog'" [(visible)]="visible" appendTo="body" (onHide)="closeDialog()" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{width: '42vw'}" header="Save With Us"
+    [draggable]="true" [resizable]="true">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-center w-full text-center flex-column">
+            <h1 class="mb-0 font-medium text-xl text-dark-blue">{{'get-free' | translate}}</h1>
+        </div>
+    </ng-template>
+
+    <div class="flex text-center">
+        <p class="mt-0 text-base font-normal text-pantone">{{'earn-points' | translate}}</p>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-between invite-code-container">
+            <div class="flex align-items-center">
+                <span class="text-base font-bold text-dark-pink uppercase">{{inviteCode}}</span>
+            </div>
+            <div class="flex">
+                <span class="cursor-pointer">
+                    <i [cdkCopyToClipboard]="inviteCode" class="pi pi-copy" style="font-size: 1rem;color: #FF2E63;"></i>
+                </span>
+
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

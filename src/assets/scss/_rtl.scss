@@ -1,0 +1,15 @@
+@mixin rtl-direction {
+    // [dir="rtl"] {
+    //     :host ::ng-deep {
+    //         @content;
+    //     }
+    // }
+
+    html:dir(rtl) & {
+        @content;
+
+        :host ::ng-deep {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@mixin paginator() {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(144, 160, 193, 0.25);
+    border-radius: 10px;
+}
+
+
+[dir="rtl"] {
+    :host ::ng-deep {
+        .p-paginator {
+            .p-dropdown {
+                .p-dropdown-label {
+                    padding-right: 1rem !important;
+                }
+            }
+        }
+    }
+}

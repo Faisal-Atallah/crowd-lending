@@ -1,0 +1,46 @@
+<p-dialog [styleClass]="'addMoneyDialog'" [(visible)]="visible" appendTo="body" (onHide)="closeDialog()" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{width: '42vw'}"
+    header="{{'add-funds-for-investing' | translate}}" [draggable]="true" [resizable]="true">
+    <ng-template pTemplate="header">
+        <div class="flex flex-column gap-2">
+            <h1 class="font-bold text-xl text-dark-blue">{{'add-funds-for-investing' | translate}}</h1>
+        </div>
+    </ng-template>
+    <form [formGroup]="addMoneyForm" class="flex flex-column gap-3 mt-2">
+        <div class="mb-2">
+            <label for="amount" class="block mb-2 font-normal text-pantone text-base">{{'enter-the-amount' |
+                translate}}</label>
+            <input name="amount" min="0" [formControlName]="'amount'" placeholder="{{'amount' | 
+            translate}}" type="number" class="w-full" id="amount" pInputText />
+            <p-message class="block mt-2" severity="error" text="{{'amount-required' | translate}}"
+                *ngIf="(addMoneyForm.controls['amount'].hasError('required'))&&!addMoneyForm.controls['amount'].valid&&addMoneyForm.controls['amount'].dirty ">
+            </p-message>
+        </div>
+        <div class="mb-2">
+            <label for="phoneNumber" class="block mb-2 font-normal text-pantone text-base">{{'phone-number' |
+                translate}}</label>
+            <input name="phoneNumber" [formControlName]="'phoneNumber'" placeholder="{{'phone-number' |  translate}}"
+                type="text" class="w-full" id="phoneNumber" pInputText />
+        </div>
+        <div class="mb-2">
+            <label for="customerName" class="block mb-2 font-normal text-pantone text-base">{{'customer-name' |
+                translate}}</label>
+            <input name="customerName" [formControlName]="'userName'" placeholder="{{'customer-name' | translate}}"
+                type="text" class="w-full" id="customerName" pInputText />
+        </div>
+        <div class="mb-2">
+            <label for="pin" class="block mb-2 font-normal text-pantone text-base">{{'pin' | translate}}</label>
+            <input name="pin" [formControlName]="'pin'" placeholder="{{'pin' | translate}}" type="password"
+                class="w-full" id="pin" pInputText />
+            <p-message class="block mt-2" severity="error" text="{{'pin-required' | translate}}"
+                *ngIf="(addMoneyForm.controls['pin'].hasError('required'))&&!addMoneyForm.controls['pin'].valid&&addMoneyForm.controls['pin'].dirty ">
+            </p-message>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="flex">
+            <button (click)="save()" pButton pRipple label="{{'save' | translate}}" (click)="visible4 = false"
+                class="save-btn uppercase w-full"></button>
+        </div>
+    </ng-template>
+</p-dialog>

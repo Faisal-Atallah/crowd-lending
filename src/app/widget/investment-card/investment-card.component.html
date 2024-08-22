@@ -1,0 +1,70 @@
+<div class="card investement-card cursor-pointer">
+    <div class="flex flex-wrap justify-content-between align-items-center">
+        <div class="flex  align-items-center">
+            <p-avatar *ngIf="image" [image]="image" size="large" shape="circle"></p-avatar>
+            <p-avatar *ngIf="!image" [image]="'assets/images/avatar/blog/blog-1.png'" size="large"
+                shape="circle"></p-avatar>
+
+            <div class="title-container">
+                <div class="text-base font-semibold text-dark-blue mb-1">{{title}}</div>
+                <div class="text-xs font-normal text-dark-blue align-items-center">
+                    {{subTitle}}
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="ml-2">
+                <div class="flex justify-content-end  mb-1">
+                    <span class="font-bold text-medium-sea-green text-base">{{amount}}</span>
+                </div>
+                <div class="flex align-items-center text-xs font-normal text-dark-blue">
+                    <span>{{'your-investment' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="ml-2">
+                <div class="flex justify-content-end  mb-1">
+                    <span class="font-bold text-base">{{duration}} </span>
+                    <span class="duration-title text-sm font-medium text-dark-blue"> {{'months' | translate}}</span>
+                </div>
+                <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                    <span>{{'investment-duration' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="ml-2">
+                <div class="flex justify-content-end  mb-1">
+                    <span class="font-bold   text-base">{{remaining}} </span>
+                    <span class="remaining-title text-sm font-medium text-dark-blue"> {{'months' | translate}}</span>
+                </div>
+                <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                    <span>{{'investment-remaining' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="ml-2">
+                <div class="text-base flex flex-column justify-content-end font-semibold text-dark-blue mb-1">
+                    <p-chip class="text-right"
+                        [ngClass]="{'p-chip-hight' : grade === 'High','p-chip-med':grade === 'Medium' ,'p-chid-low':grade === 'Low'}"
+                        [label]="grade | translate"></p-chip>
+                    <span class="block text-xs text-left flex align-items-center font-normal text-dark-blue">
+                        {{'investment-grade' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="ml-2">
+                <div class="flex justify-content-end  mb-1">
+                    <span class="font-bold text-medium-sea-green text-base">{{roi}}%</span>
+                </div>
+                <div class="text-xs flex align-items-center font-normal text-dark-blue">
+                    <span>{{'roi' | translate}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

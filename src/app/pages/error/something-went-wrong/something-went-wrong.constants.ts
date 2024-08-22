@@ -1,0 +1,1 @@
+export const SOMTHING_WENT_WRONG_ROUTE_PATH = 'somthing-went-wrong'

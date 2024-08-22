@@ -1,0 +1,6 @@
+@mixin gradient-box-style() {
+    background: linear-gradient(180deg, #FFF 0%, #F0F2FA 100%);
+    border: solid 1px rgba(144, 160, 193, 0.25);
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(66, 83, 117, 0.04);
+}

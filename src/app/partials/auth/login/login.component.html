@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm">
+    <div>
+        <ng-container *ngIf="(authService.isUserAlreadyExist$| async) === true">
+            <div class="mb-3 text-sm font-normal text-dark-pink">
+                {{'user-already-exist' | translate}}
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="(authService.invalidCredentials$ | async) === true">
+            <div class="mb-3 text-sm font-normal text-dark-pink">
+                {{'invalid-username-password' | translate}}
+            </div>
+        </ng-container>
+        <div class="mb-3">
+            <label for="email" class="block text-pantone font-normal text-sm mb-2">{{'email' | translate}}</label>
+            <input id="email" [formControlName]="'email'" type="email" placeholder="{{'email' | translate}}" pInputText
+                class="w-full">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="block text-pantone font-normal text-sm mb-2">{{'password' | translate}}</label>
+            <input id="password" [formControlName]="'password'" type="password" placeholder="{{'password' | translate}}"
+                pInputText class="w-full">
+        </div>
+        <div class="mb-8">
+            <span class="text-dark-gray text-sm font-normal line-height-4">{{'forgotten-your-password' |
+                translate}}</span>
+            <a class="block text-sm font-normal no-underline text-dark-pink cursor-pointer">{{'click-here-to-recover-it'
+                | translate}}</a>
+        </div>
+        <button (click)="signIn()" pButton pRipple label="{{'login' | translate}}"
+            class="w-full uppercase bg-dark-pink submit-btn"></button>
+    </div>
+</form>

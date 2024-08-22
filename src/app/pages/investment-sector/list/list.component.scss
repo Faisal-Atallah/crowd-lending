@@ -1,0 +1,29 @@
+@import 'box-style';
+@import 'responsive';
+@import 'paginator';
+
+:host ::ng-deep {
+    .investment-sector-data-view {
+        .p-dataview-header {
+            @include box-style();
+            margin-bottom: 1.3rem;
+        }
+
+        .p-dataview-content {
+            background-color: var(--ghost-White);
+        }
+
+        .p-dataview-emptymessage {
+            margin-bottom: 1.3rem;
+            border: 1px solid rgba(144, 160, 193, 0.25);
+            border-radius: 10px;
+            background-color: var(--white);
+        }
+
+        .p-paginator {
+            @include paginator();
+        }
+    }
+
+
+}

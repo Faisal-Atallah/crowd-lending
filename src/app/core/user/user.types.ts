@@ -1,0 +1,37 @@
+
+
+export type User = {
+    id: string,
+    timestamp: number,
+    type: string,
+    appid: string,
+    updated: number,
+    name: string,
+    votes: number,
+    version: number,
+    stored: boolean,
+    indexed: boolean,
+    cached: boolean,
+    identifier: string,
+    groups: string,
+    active: boolean,
+    twoFA: boolean,
+    email: string,
+    picture: string,
+    regMobileISDNCode: string,
+    regMobileNumber: string,
+    customerType: number,
+    onBoardingType: number,
+    programCode: string,
+    vipFlag: number,
+    kycStatus: number,
+    kycRemark: string,
+    verType: string,
+    verStatus: false,
+    verWay: string,
+    languagePreference: string,
+    objectURI: string,
+    plural: string,
+    identityProvider: string
+
+}

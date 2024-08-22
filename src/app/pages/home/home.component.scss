@@ -1,0 +1,29 @@
+@import 'breakpoints';
+
+.learn-more-btn {
+    border-color: transparent;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] {
+    :host ::ng-deep {
+
+        .btn-container,
+        .text-container {
+            text-align: right !important;
+        }
+
+        .learn-more-btn {
+            margin-right: unset;
+            margin-left: 1rem;
+        }
+
+        @include custome-screen-max-width(424px) {
+
+            .btn-container,
+            .text-container {
+                text-align: center !important;
+            }
+        }
+    }
+}

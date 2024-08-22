@@ -1,0 +1,24 @@
+::ng-deep {
+    .confirmAddMoneyDialog {
+        .cancel-btn {
+            background-color: transparent;
+            font-weight: 500;
+            color: var(--dark-gray);
+            border-color: var(--shamrock);
+        }
+
+        .confirm-btn {
+            font-size: 1rem;
+            font-weight: 700;
+            background-color: var(--shamrock);
+            border-color: var(--shamrock);
+        }
+
+        .btn {
+            font-size: 1rem;
+            border-radius: 6px;
+            border-color: var(--shamrock);
+            text-transform: uppercase;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<p-dialog [styleClass]="'withdrawFaildDialog'" [modal]="true" [(visible)]="visible" (onHide)="closeDialog()"
+    appendTo="body" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{width: '40vw'}"
+    [closable]="true" [showHeader]="true">
+    <div class="flex flex-column align-items-center my-4">
+        <span class="flex align-items-center justify-content-center bg-dark-pink text-white mr-3 border-circle mb-3"
+            style="width:64px;height:64px">
+            <i class="pi pi-times text-4xl"></i>
+        </span>
+    </div>
+    <h5 class="text-4xl text-dark-blue font-bold text-center mt-0 mb-0">
+        {{'withdrawal-failed' | translate}}
+    </h5>
+    <p class="mt-4 p-0 m-0 text-center text-base font-normal text-pantone">
+        {{'do-not-have-sufficient-funds' | translate}}
+    </p>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-center">
+            <button pButton pRipple (click)="visible = false" label="{{'review-withdrawal' | translate}}"
+                class="p-button-outlined  uppercase text-base font-bold text-ultra-red"></button>
+        </div>
+    </ng-template>
+</p-dialog>
